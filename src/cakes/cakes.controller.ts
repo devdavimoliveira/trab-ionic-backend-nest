@@ -30,6 +30,11 @@ export class CakesController {
     return this.cakesService.findOne(+id);
   }
 
+  @Get('cakeBySlug/:slug')
+  findBySlug(@Param('slug') slug: string) {
+    return this.cakesService.findBySlug(slug);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateCakeDto: UpdateCakeDto) {
     return this.cakesService.update(+id, updateCakeDto);

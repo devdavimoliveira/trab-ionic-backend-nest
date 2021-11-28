@@ -21,6 +21,12 @@ export class CakesService {
     });
   }
 
+  findBySlug(slug: string) {
+    return this.prisma.cake.findFirst({
+      where: { slug },
+    });
+  }
+
   update(id: number, data: UpdateCakeDto) {
     return this.prisma.cake.update({
       where: { id },
